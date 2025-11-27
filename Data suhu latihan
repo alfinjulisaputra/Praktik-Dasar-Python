@@ -1,0 +1,38 @@
+data_suhu = []
+
+while True:
+    print("\nMenu:")
+    print("1. Tambah Suhu")
+    print("2. Edit Suhu")
+    print("3. Hapus Suhu")
+    print("4. Lihat Suhu")
+    print("5. Keluar")
+
+    pilihan = input("Pilih menu (1-5): ")
+
+    if pilihan == "1":
+        nilai = float(input("Masukkan suhu: "))
+        data_suhu.append(nilai)
+
+    elif pilihan == "2":
+        for i, s in enumerate(data_suhu):
+            print(i, s)
+        idx = int(input("Index yang mau diubah: "))
+        if 0 <= idx < len(data_suhu):
+            data_suhu[idx] = float(input("Masukkan suhu baru: "))
+
+    elif pilihan == "3":
+        for i, s in enumerate(data_suhu):
+            print(i, s)
+        idx = int(input("Index yang mau dihapus: "))
+        if 0 <= idx < len(data_suhu):
+            del data_suhu[idx]
+
+    elif pilihan == "4":
+        print("Daftar suhu:", data_suhu)
+
+    elif pilihan == "5":
+        break
+
+    else:
+        print("Pilihan tidak valid.")
