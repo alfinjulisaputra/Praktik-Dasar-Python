@@ -1,0 +1,287 @@
+dic = {'Dosen':'Eko', 'Prodi':'Mekatronika', 'Kuliah':'Python'}
+
+# menampilkan dictionary:
+print("dic['Dosen']:", dic['Dosen'])
+print("dic['Prodi']:", dic['Prodi'])
+print("dic['Kuliah']:", dic['Kuliah'])
+
+dic = {'Dosen':'Eko', 'Prodi':'Mekatronika', 'Kuliah':'Python'}
+
+# menampilkan dictionary:
+print("Dosen:", dic['Dosen'])
+print("Prodi:", dic['Prodi'])
+print("Kuliah:", dic['Kuliah'])
+
+dic = {'satu':5, 'dua':10}
+
+# menampilkan dictionary:
+print("satu:", dic['satu'])
+print("dua:", dic['dua'])
+
+dic = {'satu':5, 'dua':10}
+
+print("dic['satu'] * dic['dua']:", (dic['satu'] * dic['dua']))
+
+dic = {'satu':5, 'dua':10}
+
+print("satu:", dic['satu'])
+print("dua:", dic['dua'])
+print("satu + dua:", dic['satu'] + dic['dua'])
+print("satu * dua:", dic['satu'] * dic['dua'])
+print("dua / satu:", dic['dua'] / dic['satu'])
+
+dic = {'satu':5, 'dua':10}   # sebelum ditambah
+dic['tiga'] = 15             # menambah elemen key 'tiga' dan value 15
+
+print(dic)   # menampilkan hasil penambahan elemen
+
+
+# Menambah Elemen ke dalam Dictionary
+dic = {'satu': 5, 'dua': 10}   # sebelum ditambah
+dic['tiga'] = 15               # menambah elemen key 'tiga' dan value '15'
+print(dic)                     # menampilkan hasil penambahan elemen
+
+
+# Mengubah Elemen dalam Dictionary
+dic = {'satu': 5, 'dua': 10, 'tiga': 15}   # sebelum diubah
+dic['dua'] = 20                            # mengubah value '10' menjadi '20'
+print(dic)
+
+
+# Menghapus Elemen dari Dictionary
+dic = {'satu': 5, 'dua': 10, 'tiga': 15}   # sebelum dihapus
+del dic['dua']                             # menghapus elemen dengan key 'dua'
+print(dic)
+
+
+# Sorting Dictionary
+D = {'a': 1, 'b': 2, 'c': 3}
+print(D)
+
+Ks = list(D.keys())     # mengambil daftar key
+print(Ks)
+
+Ks.sort()               # mengurutkan key
+print(Ks)
+
+for key in Ks:          # menampilkan key dan value yg sudah terurut
+    print(key, '=', D[key])
+
+
+# Contoh:
+list = [10, 20, 30, 40, 50]
+
+# Index Elemen di dalam List berdasarkan posisi
+print('Index List')
+print(list[0])   # bernilai 10
+print(list[2])   # bernilai 30
+print(list[4])   # bernilai 50
+print(list[-1])  # bernilai 50
+print(list[-2])  # bernilai 40
+print(list[-5])  # bernilai 10
+
+print('Banyaknya elemen')
+print(len(list))
+
+
+# Contoh:
+list = [10, 20, 30, 40, 50]
+
+# Slicing (memotong) elemen di dalam list
+print('Sebelum dipotong:')
+print(list)
+
+print('Setelah dipotong:')
+print(list[0:3])      # memotong elemen pertama sampai indeks 2
+print(list[1:4])      # memotong elemen
+print(list[:-1])      # memotong elemen dari kanan kecuali elemen -1
+print(list[-2:])      # dua elemen terakhir
+
+
+# Contoh:
+list = [10, 20, 30, 40, 50]
+
+# Penggabungan list dan membuat daftar list baru
+print('Sebelum digabung:')
+print(list)
+
+print('Setelah digabung:')
+print(list + [600, 700, 800])
+
+
+# list[-n] = list[len(list) - n]
+
+# Contoh:
+list = [10, 20, 30, 40, 50]
+
+print(len(list))   # jumlah elemen list
+
+# jika n = 3
+list[-3] == list[len(list)-3]   # = list[2]
+
+print(list[-3])
+print(list[2])
+print(list[-3])
+
+
+# Contoh:
+list = [1, 'Jeruk', 2, 'Rambutan', 3, 'Durian']
+
+# menampilkan elemen dalam list
+print(list)
+
+# index elemen
+print(list[0])
+print(list[1])
+print(list[2])
+print(list[3])
+print(list[4])
+print(list[5])
+
+
+# Nilai elemen dalam list juga dapat berupa list lain
+# Konsep sama dengan array multidimensional
+
+# Contoh:
+list = [1, 'Takumi', ['Jl. Raya Kodam', 'Cikarang Selatan'], 17580, '0811137469']
+
+print(list[2][0])
+print(list[2][1])
+print(list[3])
+
+
+M = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Matriks 3x3")
+print(M)
+
+print("Mengambil baris ke-2:")
+print(M[1])                    # baris kedua
+
+print("Mengambil baris ke-2, lalu item ke-3:")
+print(M[1][2])                 # baris ke-2, kolom ke-3
+
+print(M[0][0], M[1][1], M[2][2])  # contoh diagonal
+
+
+Matriks 3x3
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+Mengambil baris ke-2:
+[4, 5, 6]
+Mengambil baris ke-2, lalu item ke-3:
+6
+1 5 9
+
+
+M = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Matriks 3x3:")
+print(M)
+
+
+M1 = [[row[1] + 1 for row in M]]
+print("Hasil penambahan 1 untuk setiap item kolom ke-2")
+print(M1)
+
+
+print("Matriks 3x3 sebelum penyaringan data:")
+print(M)
+
+M2 = [row[1] for row in M if row[1] % 2 == 0]
+print("Data matriks yang disaring pada kolom ke-2:")
+print(M2)
+
+
+M3 = [row[0] for row in M if row[0] % 2 == 0]
+print("Data matriks yang disaring pada kolom ke-1:")
+print(M3)
+
+
+print("Matriks 3x3:")
+print(M)
+
+diag = [M[i][i] for i in [0, 1, 2]]
+print("bentuk diagonal matriks")
+print(diag)
+
+
+# Menambah elemen ke dalam List
+
+# Membuat list
+kota = ['Jakarta', 'Bandung', 'Semarang']
+print('Sebelum = ')
+print(kota)
+
+# Menggunakan metode append(); untuk menambahkan elemen tunggal di akhir List
+kota.append('Surabaya')
+print('\nSetelah append():')
+print(kota)
+
+# Menggunakan metode insert(); untuk menambahkan elemen tunggal di indeks/posisi tertentu
+kota.insert(1, 'Yogyakarta')
+print('\nSetelah insert():')
+print(kota)
+
+# Menggunakan metode extend(); untuk menggabungkan suatu list dengan list lainnya
+kota.extend(['Medan', 'Denpasar'])
+print('\nSetelah extend():')
+print(kota)
+
+
+# Mengubah nilai elemen di dalam list
+
+hewan = ['ayam', 'kucing', 'tikus']
+print('Sebelum diubah:')
+print(hewan)
+
+# Mengganti isi elemen list
+hewan[1] = 'ular'
+hewan[2] = 'buaya'
+print('\nSetelah diubah:')
+print(hewan)
+
+
+# Menghapus Elemen dari List
+
+# Membuat list
+negara = ['Indonesia', 'Singapura', 'Malaysia', 'Thailand', 'Vietnam', 'India']
+print('Sebelum dihapus:')
+print(negara)
+
+# Menggunakan remove(); menghapus elemen berdasarkan nilainya
+negara.remove('Singapura')
+negara.remove('Vietnam')
+print('\nSetelah dihapus metode remove():')
+print(negara)
+
+# Menggunakan del[]; menghapus elemen berdasarkan indeksnya
+del negara[2]    # menghapus 'Thailand'
+del negara[-1]   # menghapus indeks terakhir
+print('\nSetelah dihapus metode del[]:')
+print(negara)
+
+# Menggunakan clear(); menghapus seluruh elemen dalam list
+negara.clear()
+print('\nSetelah clear():')
+print(negara)
+
+
+# Mencari elemen di dalam list
+
+# Menggunakan metode index()
+
+buah = ['pepaya', 'nangka', 'pisang', 'jambu']
+print(buah)
+
+# Mencari elemen berdasarkan indeks
+print('\npepaya berada pada indeks ke-', buah.index('pepaya'))
+print('pisang berada pada indeks ke-', buah.index('pisang'))
+print('jambu berada pada indeks ke-', buah.index('jambu'))
