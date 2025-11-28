@@ -1,0 +1,71 @@
+# LATIHAN 1
+def intensitas_lampu(kondisi):
+    kondisi = kondisi.lower()
+
+    if kondisi == "siang":
+        print ("10000")   # lux
+    elif kondisi == "malam":
+        print ("150")  #lux
+    elif kondisi == "hujan":
+        print ("700") #lux
+
+while True:     #mengulang kmbali program
+    print("\n Intensitas Lampu Jalan ")
+    print("kondisi: siang, malam, hujan")3
+    print("ketik '.' untuk keluar dari program.\n")
+
+    kondisi = input("Masukkan kondisi: ")
+
+
+    if kondisi.lower() == ".":
+        print("Program dihentikan.")
+        break
+
+    intensitas = intensitas_lampu(kondisi)
+
+    if intensitas:
+        print(f"Intensitas cahaya saat '{kondisi}' = {intensitas} lux")
+    else:
+        print("Kondisi tidak dikenali! Masukkan: siang/malam/hujan")
+
+#LATIHAN 2
+nama_siswa = ["Ahmeng", "Mimi", "Kasim",]
+
+# List untuk menyimpan nilai hasil input
+praktikA = []
+praktikB = []
+
+print("=== PENILAIAN PRAKTIK SISWA ===\n")
+
+# Input nilai untuk setiap siswa
+for nama in nama_siswa:
+    print(f"Input nilai untuk {nama}:")   #memasukkan nilai variabel langsung ke dalam teks.
+    
+    nilaiA = float(input("Masukkan nilai Praktik A: "))
+    nilaiB = float(input("Masukkan nilai Praktik B: "))
+    
+    praktikA.append(nilaiA)
+    praktikB.append(nilaiB)
+    
+    print()  # baris kosong
+
+# Setelah semua nilai diinput → tampilkan hasil lengkap
+print("\n=== HASIL PENILAIAN ===\n")
+
+for i in range(len(nama_siswa)):
+    nama = nama_siswa[i]
+    nilaiA = praktikA[i]
+    nilaiB = praktikB[i]
+
+    if nilaiA > nilaiB:
+        status = "LULUS 😁👍"
+    elif nilaiA == nilaiB:
+      status = "LULUS 😁👍"
+    else:
+        status = "TIDAK LULUS 😔"
+
+    print(f"Nama Siswa : {nama}")
+    print(f"Nilai Praktik A : {nilaiA}")
+    print(f"Nilai Praktik B : {nilaiB}")
+    print(f"Status : {status}")
+    print("--------------------------------")
