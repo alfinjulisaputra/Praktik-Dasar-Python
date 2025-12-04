@@ -1,0 +1,26 @@
+nilai_list = []    #membuat list kosong dan menyimpan data yang di tambahkan
+
+def tambah_nilai(nilai):     #mendefinisikan function dan menerima 1 parameter
+    global nilai_list
+    nilai_list.append(nilai)     #menambahkan nilai parameter ke dlm nilai list
+    return nilai_list
+
+def hitung_rata_rata():
+    global nilai_list
+    if len(nilai_list) == 0:   #ngecek ada list kosong atau tidak
+        return 0    #jika list kosong, function langsung mengembalikan nilai 0
+    return sum(nilai_list) / len(nilai_list)      #semua nilai / banyak data
+
+def tampilkan_nilai():    #untuk mengambil dan menampilkan pda nilai list
+    global nilai_list
+    return nilai_list   #menampilkan seluruh nilai yg udh dimasukan
+
+print("PROGRAM NILAI RATA-RATA")
+jumlah_nilai = int(input("Berapa banyak nilai yang ingin dimasukkan? "))    #menginput brpa banyak nilai yg di tambahkan
+
+for i in range(jumlah_nilai):   
+    nilai = float(input(f"Masukkan nilai ke-{i+1}: "))  #buat memasukan nilai ke-1,ke-2,ke-3
+    tambah_nilai(nilai)     #memanggil function yg pertama tambah nilai
+
+print("\nDaftar nilai:", tampilkan_nilai())  
+print("Nilai rata-rata =", hitung_rata_rata())   
