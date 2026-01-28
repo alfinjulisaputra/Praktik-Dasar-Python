@@ -1,0 +1,132 @@
+data_sensor = []  #untuk menyimpan data sensor
+def tambah_data():
+    """Menambahkan data sensor baru"""
+    id_sensor = input("Masukkan Kode Sensor          : ")
+    jenis = input("Masukkan Jenis Sensor         : ")
+    nilai = float(input("Masukkan Nilai Data Sensor    : "))
+    satuan = input("Masukkan Satuan               : ")
+
+    # Penentuan status sensor
+    if nilai > 200:
+        status = "WARNING⚠️"
+    else:
+        status = "NORMAL✅"
+
+    data_sensor.append([id_sensor, jenis, nilai, satuan, status])
+    print("Data sensor berhasil ditambahkan✅.\n")
+
+def tampilkan_data():
+    """Menampilkan seluruh data sensor"""
+    if len(data_sensor) == 0:
+        print(">> Data sensor masih kosong.\n")
+    else:
+        print("\n=== DATA SENSOR ===")
+        for i, data in enumerate(data_sensor, start=1):
+            print(f"{i}. Kode   : {data[0]}")
+            print(f"   Jenis  : {data[1]}")
+            print(f"   Nilai  : {data[2]} {data[3]}")
+            print(f"   Status : {data[4]}")
+            print("***************************")
+        print()
+
+def cari_data():
+    """Mencari data sensor berdasarkan Kode"""
+    id_cari = input("Masukkan Kode Sensor yang dicari: ")
+    for data in data_sensor:
+        if data[0] == id_cari:
+            print("\nData ditemukan✅")
+            print("Kode   :", data[0])
+            print("Jenis  :", data[1])
+            print("Nilai  :", data[2], data[3])
+            print("Status :", data[4], "\n")
+            return
+    print(">> Data sensor tidak ditemukan.\n")
+
+def edit_data():
+    """Mengedit data sensor berdasarkan Kode"""
+    id_edit = input("Masukkan Kode Sensor yang akan diedit: ")
+    for data in data_sensor:
+        if data[0] == id_edit:
+            print("Masukkan data baru")
+            data[1] = input("Jenis Sensor     : ")
+            data[2] = float(input("Nilai Sensor     : "))
+            data[3] = input("Satuan           : ")
+
+            # Update status
+            if data[2] > 80:
+                data[4] = "WARNING⚠️"
+            else:
+                data[4] = "NORMAL✅"
+
+            print("✅Data sensor berhasil diperbarui✅.\n")
+            return
+    print("❗Data sensor tidak ditemukan❗.\n")
+
+def hapus_data():
+    """Menghapus data sensor berdasarkan ID"""
+    id_hapus = input("Masukkan Kode Sensor yang akan dihapus: ")
+    for data in data_sensor:
+        if data[0] == id_hapus:
+            data_sensor.remove(data)
+            print("Data sensor berhasil dihapus✅.\n")
+            return
+    print("Data sensor tidak ditemukan❗.\n")
+
+def analisis_data():
+    """Analisis data sensor (rata-rata, tertinggi, terendah)"""
+    if len(data_sensor) == 0:
+        print("Tidak ada data untuk dianalisis❗.\n")
+        return
+
+    nilai_sensor = [data[2] for data in data_sensor]
+
+    rata_rata = sum(nilai_sensor) / len(nilai_sensor)
+    maksimum = max(nilai_sensor)
+    minimum = min(nilai_sensor)
+
+    print("\n=== ANALISIS DATA SENSOR ===")
+    print("Rata-rata Nilai Sensor :", rata_rata)
+    print("Nilai Tertinggi        :", maksimum)
+    print("Nilai Terendah         :", minimum, "\n")
+
+def simpan_file():
+    """Menyimpan data sensor ke file teks"""
+    with open("data_sensor.txt", "w") as file:
+        for data in data_sensor:
+            file.write(f"{data[0]}, {data[1]}, {data[2]}, {data[3]}, {data[4]}\n")
+    print(">> Data berhasil disimpan ke file data_sensor.txt\n")
+
+#  MENU UTAMA PRORAM
+
+while True:
+    print("=== MENU SISTEM DATA SENSOR ===")
+    print("1. Tambah Data Sensor")
+    print("2. Tampilkan Data Sensor")
+    print("3. Cari Data Sensor")
+    print("4. Edit Data Sensor")
+    print("5. Hapus Data Sensor")
+    print("6. Analisis Data Sensor")
+    print("7. Simpan Data ke File")
+    print("8. EXIT")
+
+    pilihan = input("Pilih Menu (1-8): ")
+
+    if pilihan == "1":
+        tambah_data()
+    elif pilihan == "2":
+        tampilkan_data()
+    elif pilihan == "3":
+        cari_data()
+    elif pilihan == "4":
+        edit_data()
+    elif pilihan == "5":
+        hapus_data()
+    elif pilihan == "6":
+        analisis_data()
+    elif pilihan == "7":
+        simpan_file()
+    elif pilihan == "8":
+        print(">> Program selesai. Terima kasih👋.")
+        break
+    else:
+        print(">> Pilihan tidak valid!\n")
