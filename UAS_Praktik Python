@@ -7,14 +7,12 @@ def tambah_data():
     satuan = input("Masukkan Satuan               : ")
 
     # Penentuan status sensor
-    if nilai > 200:
+    if nilai > 75:
         status = "WARNING⚠️"
     else:
         status = "NORMAL✅"
-
     data_sensor.append([id_sensor, jenis, nilai, satuan, status])
     print("Data sensor berhasil ditambahkan✅.\n")
-
 def tampilkan_data():
     """Menampilkan seluruh data sensor"""
     if len(data_sensor) == 0:
@@ -53,15 +51,14 @@ def edit_data():
             data[3] = input("Satuan           : ")
 
             # Update status
-            if data[2] > 80:
+            
+            if data[2] > 75:
                 data[4] = "WARNING⚠️"
             else:
                 data[4] = "NORMAL✅"
-
             print("✅Data sensor berhasil diperbarui✅.\n")
             return
     print("❗Data sensor tidak ditemukan❗.\n")
-
 def hapus_data():
     """Menghapus data sensor berdasarkan ID"""
     id_hapus = input("Masukkan Kode Sensor yang akan dihapus: ")
@@ -71,24 +68,19 @@ def hapus_data():
             print("Data sensor berhasil dihapus✅.\n")
             return
     print("Data sensor tidak ditemukan❗.\n")
-
 def analisis_data():
     """Analisis data sensor (rata-rata, tertinggi, terendah)"""
     if len(data_sensor) == 0:
         print("Tidak ada data untuk dianalisis❗.\n")
         return
-
     nilai_sensor = [data[2] for data in data_sensor]
-
     rata_rata = sum(nilai_sensor) / len(nilai_sensor)
     maksimum = max(nilai_sensor)
     minimum = min(nilai_sensor)
-
     print("\n=== ANALISIS DATA SENSOR ===")
     print("Rata-rata Nilai Sensor :", rata_rata)
     print("Nilai Tertinggi        :", maksimum)
     print("Nilai Terendah         :", minimum, "\n")
-
 def simpan_file():
     """Menyimpan data sensor ke file teks"""
     with open("data_sensor.txt", "w") as file:
@@ -96,7 +88,7 @@ def simpan_file():
             file.write(f"{data[0]}, {data[1]}, {data[2]}, {data[3]}, {data[4]}\n")
     print(">> Data berhasil disimpan ke file data_sensor.txt\n")
 
-#  MENU UTAMA PRORAM
+#  MENU UTAMA PROGRAM
 
 while True:
     print("=== MENU SISTEM DATA SENSOR ===")
@@ -108,7 +100,6 @@ while True:
     print("6. Analisis Data Sensor")
     print("7. Simpan Data ke File")
     print("8. EXIT")
-
     pilihan = input("Pilih Menu (1-8): ")
 
     if pilihan == "1":
